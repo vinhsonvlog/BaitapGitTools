@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      :root {
+        --bg-start: #f5f7fa;
+        --bg-end: #e8edf5;
+        --card-bg: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --primary: #0a66c2;
+        --primary-hover: #084f96;
+        --border: #d1d5db;
+        --shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        color: var(--text);
+        background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      }
+
+      .login-card {
+        width: min(92vw, 420px);
+        padding: 28px;
+        border-radius: 16px;
+        background: var(--card-bg);
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.8rem;
+      }
+
+      p {
+        margin: 0 0 22px;
+        color: var(--muted);
+      }
+
+      form {
+        display: grid;
+        gap: 14px;
+      }
+
+      label {
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      input {
+        width: 100%;
+        margin-top: 6px;
+        padding: 11px 12px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        font-size: 1rem;
+      }
+
+      input:focus {
+        outline: 2px solid rgba(10, 102, 194, 0.2);
+        border-color: var(--primary);
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 4px;
+        font-size: 0.9rem;
+      }
+
+      .row a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .row a:hover {
+        text-decoration: underline;
+      }
+
+      button {
+        margin-top: 6px;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--primary);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      button:hover {
+        background: var(--primary-hover);
+      }
+
+      .register {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .register a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      .register a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="login-card">
+      <h1>Welcome back</h1>
+      <p>Sign in to continue.</p>
+
+      <form action="#" method="post">
+        <label>
+          Email or phone number
+          <input
+            type="text"
+            name="account"
+            autocomplete="username"
+            placeholder="you@example.com"
+            required
+          />
+        </label>
+
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            autocomplete="current-password"
+            placeholder="Enter your password"
+            required
+          />
+        </label>
+
+        <div class="row">
+          <label>
+            <input type="checkbox" name="remember" />
+            Remember me
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit">Log in</button>
+      </form>
+
+      <p class="register">No account yet? <a href="#">Create one</a></p>
+    </main>
+  </body>
+</html>
