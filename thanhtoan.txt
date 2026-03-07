@@ -1,5 +1,5 @@
 MÔ ĐUN THANH TOÁN - DỰ ÁN CỬA HÀNG SÁCH TRỰC TUYẾN
-- Trạng thái: Đang lên kế hoạch phát triển
+- Trạng thái: đã cập nhật tính năng mới 
 
 Danh sách các phương thức thanh toán dự kiến:
 1. Thanh toán khi giao hàng (COD)
