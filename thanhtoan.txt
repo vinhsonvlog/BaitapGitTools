@@ -1,0 +1,11 @@
+MÔ ĐUN THANH TOÁN - DỰ ÁN CỬA HÀNG SÁCH TRỰC TUYẾN
+- Trạng thái: Đang lên kế hoạch phát triển
+
+Danh sách các phương thức thanh toán dự kiến:
+1. Thanh toán khi giao hàng (COD)
+2. Chuyển khoản qua thẻ ngân hàng nội địa / Visa / Mastercard
+3. Tích hợp ví điện tử (MoMo, ZaloPay, VNPay)
+
+Ghi chú cho nhóm phát triển: 
+- Cần thiết kế giao diện giỏ hàng trước khi làm trang thanh toán.
+- Đảm bảo bảo mật thông tin đơn hàng khi gọi API sang các cổng thanh toán.
