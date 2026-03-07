@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So sánh sản phẩm</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+        }
+
+        .page-title {
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        th,
+        td {
+            border: 1px solid #000;
+            padding: 12px;
+            vertical-align: middle;
+        }
+
+        /* Hiệu ứng màu xen kẽ cho các hàng (màu xanh nhạt và trắng) */
+        tr:nth-child(even) {
+            background-color: #cce5ff;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        /* Cột tiêu đề đầu tiên */
+        td:first-child {
+            font-weight: bold;
+            width: 15%;
+            text-align: left;
+            padding-left: 20px;
+            background-color: inherit;
+        }
+
+        .product-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .btn-buy {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-buy:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-container">
+        <a href="#" class="back-btn">&lt; Quay lại</a>
+        <div class="page-title">So sánh sản phẩm</div>
+    </div>
+
+    <table>
+        <tr>
+            <td>Hình ảnh</td>
+            <td><img src="https://via.placeholder.com/100" alt="iPhone 15 Pro" class="product-img"></td>
+            <td><img src="https://via.placeholder.com/100" alt="Samsung S24" class="product-img"></td>
+            <td><img src="https://via.placeholder.com/100" alt="Google Pixel 8 Pro" class="product-img"></td>
+        </tr>
+
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td>Apple iPhone 15 Pro</td>
+            <td>Samsung Galaxy S24</td>
+            <td>Google Pixel 8 Pro</td>
+        </tr>
+        <tr>
+            <td>Giá</td>
+            <td>$.399.000</td>
+            <td>$.499.000</td>
+            <td>$.399.000</td>
+        </tr>
+        <tr>
+            <td>Màn hình</td>
+            <td>6.1 inch Super Retina XDR</td>
+            <td>6.1 inch Super Retina XDR</td>
+            <td>6.1 inch Super Retina XDR</td>
+        </tr>
+        <tr>
+            <td>Camera sau</td>
+            <td>48MP + 12MP + 12MP</td>
+            <td>48MP + 12MP + 12MP</td>
+            <td>48MP + 12MP + 12MP</td>
+        </tr>
+        <tr>
+            <td>Camera trước</td>
+            <td>42MP</td>
+            <td>12.5MP</td>
+            <td>1.22MP</td>
+        </tr>
+        <tr>
+            <td>Chip (CPU)</td>
+            <td>A17 Pro</td>
+            <td>A17 Pro</td>
+            <td>A17 Pro</td>
+        </tr>
+        <tr>
+            <td>RAM</td>
+            <td>8GB</td>
+            <td>8GB</td>
+            <td>8GB</td>
+        </tr>
+        <tr>
+            <td>Bộ nhớ trong</td>
+            <td>128GB</td>
+            <td>128GB</td>
+            <td>128GB</td>
+        </tr>
+        <tr>
+            <td>Pin</td>
+            <td>3274 mAh</td>
+            <td>3274 mAh</td>
+            <td>3274 mAh</td>
+        </tr>
+        <tr>
+            <td>Hệ điều hành</td>
+            <td>iOS 17</td>
+            <td>iOS 17</td>
+            <td>iOS 17</td>
+        </tr>
+
+        <tr style="background-color: #fff;">
+            <td></td>
+            <td><button class="btn-buy">Mua ngay</button></td>
+            <td><button class="btn-buy">Mua ngay</button></td>
+            <td><button class="btn-buy">Mua ngay</button></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
