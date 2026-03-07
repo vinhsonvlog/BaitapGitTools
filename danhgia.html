@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh giá sách</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .review-container { background-color: #fff; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .review-container h2 { text-align: center; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .submit-btn { background-color: #28a745; color: white; border: none; padding: 10px 15px; width: 100%; border-radius: 4px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        .submit-btn:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+<div class="review-container">
+    <h2>Đánh giá tựa sách này</h2>
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label for="rating">Điểm đánh giá (Sao):</label>
+            <select id="rating" name="rating">
+                <option value="5">⭐⭐⭐⭐⭐ - Tuyệt vời</option>
+                <option value="4">⭐⭐⭐⭐ - Rất hay</option>
+                <option value="3">⭐⭐⭐ - Bình thường</option>
+                <option value="2">⭐⭐ - Hơi tệ</option>
+                <option value="1">⭐ - Rất tệ</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="comment">Nhận xét của bạn:</label>
+            <textarea id="comment" name="comment" rows="4" placeholder="Chia sẻ cảm nhận của bạn về nội dung, chất lượng giấy..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Gửi đánh giá</button>
+    </form>
+</div>
+
+</body>
+</html>

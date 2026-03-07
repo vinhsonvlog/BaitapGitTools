@@ -1,0 +1,7 @@
+TÍNH NĂNG ĐÁNH GIÁ SÁCH (REVIEW)
+- Mục đích: Cho phép độc giả để lại nhận xét sau khi mua sách.
+- Các yêu cầu thiết kế:
+  1. Cho phép người dùng chấm điểm từ 1 đến 5 sao.
+  2. Khung nhập văn bản để viết nhận xét về chất lượng giấy, bìa và nội dung sách.
+  3. Hiển thị ngày giờ đánh giá và tên người dùng (có thể ẩn danh).
+  4. Cần có chức năng báo cáo (report) các đánh giá vi phạm tiêu chuẩn cộng đồng (spam, ngôn từ kích động).
