@@ -28,6 +28,7 @@
       <ul class="nav-links">
         <li><a href="#new">New arrivals</a></li>
         <li><a href="#featured">Featured</a></li>
+        <li><a href="#upload">Add images</a></li>
         <li><a href="#collections">Collections</a></li>
       </ul>
       <button class="action-btn">Cart (2)</button>
@@ -127,6 +128,25 @@
             <button>Add</button>
           </footer>
         </article>
+      </section>
+
+      <section id="upload" class="upload-panel reveal">
+        <div class="upload-header">
+          <div>
+            <p class="eyebrow">Admin Quick Tool</p>
+            <h2>Add product images</h2>
+            <p>
+              Select one or multiple images from your device to preview before
+              uploading to your backend.
+            </p>
+          </div>
+          <label class="upload-cta" for="imageInput">Choose images</label>
+          <input id="imageInput" type="file" accept="image/*" multiple hidden />
+        </div>
+
+        <div id="uploadPreview" class="upload-preview">
+          <p class="upload-empty">No images selected yet.</p>
+        </div>
       </section>
 
       <section id="collections" class="banner reveal">

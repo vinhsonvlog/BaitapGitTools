@@ -1,6 +1,9 @@
 const chips = document.querySelectorAll('.chip');
 const cards = document.querySelectorAll('.product-card');
 const countdown = document.getElementById('countdown');
+const imageInput = document.getElementById('imageInput');
+const uploadPreview = document.getElementById('uploadPreview');
+let previewUrls = [];
 
 chips.forEach((chip) => {
   chip.addEventListener('click', () => {
@@ -28,3 +31,39 @@ setInterval(() => {
 
   countdown.textContent = `${hours}:${minutes}:${seconds}`;
 }, 1000);
+
+if (imageInput && uploadPreview) {
+  imageInput.addEventListener('change', () => {
+    previewUrls.forEach((url) => URL.revokeObjectURL(url));
+    previewUrls = [];
+
+    const files = Array.from(imageInput.files || []).filter((file) =>
+      file.type.startsWith('image/')
+    );
+
+    if (!files.length) {
+      uploadPreview.innerHTML = '<p class="upload-empty">No images selected yet.</p>';
+      return;
+    }
+
+    uploadPreview.innerHTML = '';
+
+    files.forEach((file) => {
+      const fileUrl = URL.createObjectURL(file);
+      previewUrls.push(fileUrl);
+
+      const card = document.createElement('article');
+      card.className = 'preview-card';
+
+      const image = document.createElement('img');
+      image.src = fileUrl;
+      image.alt = file.name;
+
+      const name = document.createElement('p');
+      name.textContent = file.name;
+
+      card.append(image, name);
+      uploadPreview.append(card);
+    });
+  });
+}
