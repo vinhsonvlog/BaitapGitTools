@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sản phẩm</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Layout chính */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cột Bộ Lọc (Trái) */
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #e6e6e6;
+            border-right: 1px solid #ddd;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        /* Khoảng giá */
+        .price-inputs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .price-inputs input {
+            width: 45%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .price-slider {
+            height: 4px;
+            background: #000;
+            margin: 15px 10px;
+            position: relative;
+        }
+
+        .price-slider::before,
+        .price-slider::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            top: -5px;
+        }
+
+        .price-slider::before {
+            left: 0;
+        }
+
+        .price-slider::after {
+            right: 0;
+        }
+
+        /* Checkbox & Text */
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .checkbox-item input {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 18px;
+            margin-right: 5px;
+        }
+
+        /* Cột Sản phẩm (Phải) */
+        .main-content {
+            width: 75%;
+            padding: 20px;
+            background: #fff;
+        }
+
+        /* Thanh tìm kiếm top */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .search-bar {
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            width: 300px;
+        }
+
+        .icons {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Lưới sản phẩm */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+            text-align: left;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #d0021c;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .product-rating {
+            text-align: left;
+            margin-bottom: 15px;
+            color: #f39c12;
+            font-size: 14px;
+        }
+
+        /* Nút và So sánh */
+        .btn-add-cart {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .btn-add-cart:hover {
+            background-color: #0b7dda;
+        }
+
+        .compare-checkbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .compare-checkbox input {
+            margin-right: 5px;
+        }
+
+        /* Footer mini */
+        .footer-links {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #666;
+            background: #e6e6e6;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Bộ Lọc Tìm Kiếm</h2>
+
+            <div class="filter-group">
+                <h3 class="filter-title">Khoảng giá</h3>
+                <div class="price-inputs">
+                    <input type="text" placeholder="">
+                    <span>→</span>
+                    <input type="text" placeholder="">
+                </div>
+                <div class="price-slider"></div>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">Thương hiệu</h3>
+                <label class="checkbox-item"><input type="checkbox"> Apple</label>
+                <label class="checkbox-item"><input type="checkbox"> Samsung</label>
+                <label class="checkbox-item"><input type="checkbox"> Sony</label>
+                <label class="checkbox-item"><input type="checkbox"> Dell</label>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">RAM</h3>
+                <label class="checkbox-item"><input type="checkbox"> 8GB</label>
+                <label class="checkbox-item"><input type="checkbox"> 16GB</label>
+                <label class="checkbox-item"><input type="checkbox"> 32GB</label>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">Đánh giá</h3>
+                <div class="checkbox-item"><span class="stars">★★★★☆</span> 4 Stars & Up</div>
+                <div class="checkbox-item"><span class="stars">★★★☆☆</span> 3 Stars & Up</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <input type="text" class="search-bar" placeholder="🔍 Search">
+                <span class="icons">👤</span>
+                <span class="icons">🛒</span>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="iPhone 15 Pro" class="product-img">
+                    <div class="product-name">iPhone 15 Pro</div>
+                    <div class="product-price">20.000.000đ</div>
+                    <div class="product-rating">★★★★★</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    <label class="compare-checkbox"><input type="checkbox"> So sánh</label>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Samsung S24" class="product-img">
+                    <div class="product-name">Samsung Galaxy S24</div>
+                    <div class="product-price">18.500.000đ</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    <label class="compare-checkbox"><input type="checkbox"> So sánh</label>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Dell XPS 13" class="product-img">
+                    <div class="product-name">Dell XPS 13</div>
+                    <div class="product-price">18.500.000đ</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    <label class="compare-checkbox"><input type="checkbox"> So sánh</label>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Sony WH-1000XM5" class="product-img">
+                    <div class="product-name">Sony WH-1000XM5</div>
+                    <div class="product-price">18.500.000đ</div>
+                    <div class="product-rating">★★★★★</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    <label class="compare-checkbox"><input type="checkbox"> So sánh</label>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Dell XPS 13" class="product-img">
+                    <div class="product-name">Dell XPS 13</div>
+                    <div class="product-price">18.500.000đ</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    <label class="compare-checkbox"><input type="checkbox"> So sánh</label>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/150" alt="Samsung S24" class="product-img">
+                    <div class="product-name">Samsung Galaxy S24</div>
+                    <div class="product-price">18.500.000đ</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <button class="btn-add-cart">Thêm vào giỏ</button>
+                    <label class="compare-checkbox"><input type="checkbox"> So sánh</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">Terms and conditions</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Links of returns</a>
+        <a href="#">Contact us</a>
+    </div>
+
+</body>
+
+</html>
