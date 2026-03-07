@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Urban Cart - Commerce UI Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <p>Free shipping for orders over $80</p>
+      <a href="#">Track order</a>
+    </header>
+
+    <nav class="navbar">
+      <a class="brand" href="#">
+        <span>URBAN</span>
+        <strong>CART</strong>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#new">New arrivals</a></li>
+        <li><a href="#featured">Featured</a></li>
+        <li><a href="#collections">Collections</a></li>
+      </ul>
+      <button class="action-btn">Cart (2)</button>
+    </nav>
+
+    <main>
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Season Drop 2026</p>
+          <h1>Make your storefront feel as bold as your products.</h1>
+          <p>
+            A premium commerce layout focused on conversion: stronger hierarchy,
+            cleaner product cards, and motion that guides attention.
+          </p>
+          <div class="hero-actions">
+            <a class="solid" href="#featured">Shop featured</a>
+            <a class="ghost" href="#collections">Explore collections</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img
+            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=850&q=80"
+            alt="Model wearing modern fashion items"
+          />
+          <div class="hero-badge">
+            <p>Flash Deal</p>
+            <strong id="countdown">07:59:59</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="new" class="chips reveal">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="apparel">Apparel</button>
+        <button class="chip" data-filter="shoes">Shoes</button>
+        <button class="chip" data-filter="accessories">Accessories</button>
+      </section>
+
+      <section id="featured" class="product-grid reveal">
+        <article class="product-card" data-category="apparel">
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80"
+            alt="Graphic street t-shirt"
+          />
+          <div>
+            <h3>Streetline Tee</h3>
+            <p>Soft cotton fit with premium print.</p>
+          </div>
+          <footer>
+            <span>$34</span>
+            <button>Add</button>
+          </footer>
+        </article>
+
+        <article class="product-card" data-category="shoes">
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80"
+            alt="Red urban running sneakers"
+          />
+          <div>
+            <h3>Velocity Sneakers</h3>
+            <p>Urban traction and breathable comfort.</p>
+          </div>
+          <footer>
+            <span>$89</span>
+            <button>Add</button>
+          </footer>
+        </article>
+
+        <article class="product-card" data-category="accessories">
+          <img
+            src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=900&q=80"
+            alt="Modern leather cross-body bag"
+          />
+          <div>
+            <h3>Metro Carry Bag</h3>
+            <p>Daily bag with clean storage layout.</p>
+          </div>
+          <footer>
+            <span>$58</span>
+            <button>Add</button>
+          </footer>
+        </article>
+
+        <article class="product-card" data-category="apparel">
+          <img
+            src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=900&q=80"
+            alt="Lightweight utility jacket"
+          />
+          <div>
+            <h3>Utility Jacket</h3>
+            <p>Layered style for changing weather.</p>
+          </div>
+          <footer>
+            <span>$76</span>
+            <button>Add</button>
+          </footer>
+        </article>
+      </section>
+
+      <section id="collections" class="banner reveal">
+        <div>
+          <p class="eyebrow">Built for scale</p>
+          <h2>Use this layout as a clean base for your real product catalog.</h2>
+          <p>
+            Includes modern cards, promotional block, filtering chips, and a
+            responsive grid ready for API data.
+          </p>
+        </div>
+        <a href="#">View all collections</a>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
