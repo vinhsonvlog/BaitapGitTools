@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        /* ===== HEADER ===== */
+        .header-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .back-btn {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        .page-title {
+            text-align: center;
+            width: 100%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* ===== LAYOUT ===== */
+        .checkout-wrapper {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        /* ===== LEFT – Thông tin giao hàng ===== */
+        .section {
+            background: #fff;
+            border: 1px solid #000;
+            border-radius: 4px;
+            padding: 20px;
+            flex: 1.4;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2196F3;
+            color: #2196F3;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border: 1px solid #000;
+            border-radius: 4px;
+            padding: 10px 12px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #2196F3;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* ===== PHƯƠNG THỨC THANH TOÁN ===== */
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #000;
+            border-radius: 6px;
+            padding: 10px 16px;
+            cursor: pointer;
+            flex: 1;
+            min-width: 130px;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .payment-option input[type="radio"] {
+            accent-color: #2196F3;
+            width: 16px;
+            height: 16px;
+        }
+
+        .payment-option:has(input:checked) {
+            border-color: #2196F3;
+            background-color: #cce5ff;
+        }
+
+        .payment-option span {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .payment-icon {
+            font-size: 20px;
+        }
+
+        /* ===== RIGHT – Đơn hàng ===== */
+        .order-summary {
+            background: #fff;
+            border: 1px solid #000;
+            border-radius: 4px;
+            padding: 20px;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        /* Bảng sản phẩm */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            border: 1px solid #000;
+            margin-bottom: 16px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px 12px;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+
+        thead tr {
+            background-color: #2196F3;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #cce5ff;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        td:first-child {
+            text-align: left;
+        }
+
+        .product-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        /* Tổng tiền */
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .summary-row:last-of-type {
+            border-bottom: none;
+        }
+
+        .summary-row.total {
+            font-weight: bold;
+            font-size: 17px;
+            color: #2196F3;
+            margin-top: 6px;
+        }
+
+        /* ===== NÚT ===== */
+        .btn-buy {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 18px;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-buy:hover {
+            background-color: #0b7dda;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .checkout-wrapper {
+                flex-direction: column;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-container">
+        <a href="#" class="back-btn">&lt; Quay lại</a>
+        <div class="page-title">Thanh toán</div>
+    </div>
+
+    <div class="checkout-wrapper">
+
+        <!-- ===== LEFT: Thông tin giao hàng + Thanh toán ===== -->
+        <div style="flex: 1.4; display: flex; flex-direction: column; gap: 20px;">
+
+            <!-- Thông tin giao hàng -->
+            <div class="section">
+                <div class="section-title">Thông tin giao hàng</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Họ và tên *</label>
+                        <input type="text" placeholder="Nhập họ và tên">
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại *</label>
+                        <input type="tel" placeholder="Nhập số điện thoại">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Nhập email">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Tỉnh / Thành phố *</label>
+                        <select>
+                            <option value="">-- Chọn tỉnh/thành --</option>
+                            <option>TP. Hồ Chí Minh</option>
+                            <option>Hà Nội</option>
+                            <option>Đồng Nai</option>
+                            <option>Bình Dương</option>
+                            <option>Đà Nẵng</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quận / Huyện *</label>
+                        <select>
+                            <option value="">-- Chọn quận/huyện --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Địa chỉ cụ thể *</label>
+                        <input type="text" placeholder="Số nhà, tên đường, phường/xã...">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Ghi chú đơn hàng</label>
+                        <textarea placeholder="Ghi chú thêm (nếu có)..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phương thức thanh toán -->
+            <div class="section">
+                <div class="section-title">Phương thức thanh toán</div>
+
+                <div class="payment-methods">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cod" checked>
+                        <span class="payment-icon">💵</span>
+                        <span>Tiền mặt (COD)</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="bank">
+                        <span class="payment-icon">🏦</span>
+                        <span>Chuyển khoản</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="momo">
+                        <span class="payment-icon">📱</span>
+                        <span>Ví MoMo</span>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card">
+                        <span class="payment-icon">💳</span>
+                        <span>Thẻ tín dụng</span>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== RIGHT: Đơn hàng ===== -->
+        <div class="order-summary">
+            <div class="section-title">Đơn hàng của bạn</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>SL</th>
+                        <th>Giá</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <img src="https://via.placeholder.com/50" alt="iPhone 15 Pro" class="product-img">
+                                <span>Apple iPhone 15 Pro</span>
+                            </div>
+                        </td>
+                        <td>1</td>
+                        <td>23.990.000đ</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <img src="https://via.placeholder.com/50" alt="Samsung S24" class="product-img">
+                                <span>Samsung Galaxy S24</span>
+                            </div>
+                        </td>
+                        <td>2</td>
+                        <td>35.980.000đ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Tổng tiền -->
+            <div class="summary-row">
+                <span>Tạm tính:</span>
+                <span>59.970.000đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển:</span>
+                <span>Miễn phí</span>
+            </div>
+            <div class="summary-row">
+                <span>Giảm giá:</span>
+                <span style="color: #e53935;">- 500.000đ</span>
+            </div>
+            <div class="summary-row total">
+                <span>Tổng cộng:</span>
+                <span>59.470.000đ</span>
+            </div>
+
+            <button class="btn-buy">Đặt hàng ngay</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
